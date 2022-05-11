@@ -4,6 +4,7 @@ const app = new Vue ({
     data:{
         email:[],
         isLoading: true,
+        totEmail: 10,
     },
     mounted(){
         this.generaEmail()
@@ -12,10 +13,16 @@ const app = new Vue ({
 
     methods:{
         generaEmail(){
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 10 ; i++) {
                 axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((risp)=>{
                     this.email.push(risp.data)
+                    if(this.email.length === this.totEmail){
+                        this.isLoading = false;
+                    }
+                    
+                    
+                    
                     
                    
                     
@@ -23,10 +30,8 @@ const app = new Vue ({
                 
                 
             }
-            if (this.email.length < 10){
-                this.isLoading = false;
-                console.log(this.email);
-            }
+            
+            
                 
             
             

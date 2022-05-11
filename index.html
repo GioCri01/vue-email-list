@@ -12,7 +12,7 @@
 <body>
     <div id="app" class="container">
         <div v-if="isLoading" class="loader">asd</div>
-        <div class="email-list">
+        <div v-else="" class="email-list">
             <ul >
                 <li v-for=" item in email">{{item.response}}</li>
             </ul>
